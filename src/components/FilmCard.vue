@@ -1,21 +1,16 @@
 <template>
     <div class="single-card">
         <div>
-            <span class="titolo">Titolo: </span>
-            <span>{{film.title}}</span>
+            <span class="title">Titolo: {{film.title}}</span>
         </div>
         <div>
-            <span class="titolo-originale">Titolo originale: </span>
-            <span>{{film.original_title}}</span>
+            <span class="original-title">Titolo originale: {{film.original_title}}</span>
         </div>
         <div>
-            <span class="lingua">Lingua: </span>
-            <span>{{film.title}}</span>
-                    
+            <span class="language">Lingua: {{film.original_language}}</span>     
         </div>
         <div>
-            <span class="voto">Voto: </span>
-            <span>{{film.vote_average}}</span>
+            <span class="vote">Voto: {{film.vote_average}}</span>
         </div>
     </div>
 </template>
