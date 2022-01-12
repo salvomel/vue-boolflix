@@ -20,35 +20,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import '../style/variables';
-
-header {
-    background-color: $secondary-color;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 60px;
-    
-   img {
-       height: 50px;
-       border-radius: 8px;
-    }
-
-   input, .search-btn {
-        border: none;
-        border-radius: 8px;
-        padding: 5px 15px;
-        margin-left: 8px;
-    }
-    
-    input {
-        width: 300px;
-    }
-    
-    .search-btn {
-        background-color: $primary-color;
-        color: $text-color;
-        cursor: pointer;
-    }
-}
+    @import '../style/header';
 </style>

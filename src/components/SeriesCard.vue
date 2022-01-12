@@ -29,6 +29,6 @@
     }
 </script>
 
-<style scoped lang="scss">
-@import '../style/cards';
+<style scoped lang="scss">  
+    @import '../style/cards';
 </style>

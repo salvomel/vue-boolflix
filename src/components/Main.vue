@@ -31,5 +31,5 @@
 </script>
 
 <style scoped lang="scss">
-@import '../style/main';
+    @import '../style/main';
 </style>
