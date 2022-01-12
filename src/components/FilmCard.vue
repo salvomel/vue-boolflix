@@ -1,16 +1,16 @@
 <template>
     <div class="single-card">
         <div>
-            <span class="title">Titolo: {{film.title}}</span>
+            <span class="title">Titolo: {{filmInfo.title}}</span>
         </div>
         <div>
-            <span class="original-title">Titolo originale: {{film.original_title}}</span>
+            <span class="original-title">Titolo originale: {{filmInfo.original_title}}</span>
         </div>
         <div>
-            <span class="language">Lingua: {{film.original_language}}</span>     
+            <span class="language">Lingua: {{filmInfo.original_language}}</span>     
         </div>
         <div>
-            <span class="vote">Voto: {{film.vote_average}}</span>
+            <span class="vote">Voto: {{filmInfo.vote_average}}</span>
         </div>
     </div>
 </template>
@@ -19,7 +19,7 @@
     export default {
         name: 'FilmCard',
         props: {
-            film: Object,
+            filmInfo: Object,
         },
     }
 </script>
