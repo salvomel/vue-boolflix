@@ -8,7 +8,13 @@
     padding: 10px;
     line-height: 30px;
 
-    img {
-        height: 15px;
+    .poster {
+        border-radius: 8px;
+    }
+
+    .language {
+        img {
+            height: 15px;
+        }
     }
 }
