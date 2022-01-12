@@ -5,7 +5,17 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 60px;
+    padding: 15px 60px;
+
+    .logo {
+        display: flex;
+        align-items: center;
+
+        h1 {
+            color: $text-color;
+            margin-left: 13px;
+        }
+    }
     
    img {
        height: 50px;
@@ -15,8 +25,9 @@ header {
    input, .search-btn {
         border: none;
         border-radius: 8px;
-        padding: 5px 15px;
+        padding: 7px 15px;
         margin-left: 8px;
+        font-size: 15px;
     }
     
     input {

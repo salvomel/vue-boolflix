@@ -1,8 +1,11 @@
 <template>
     <header>
-        <img src="../assets/img/logo.jpg" alt="Logo">
+        <div class="logo">
+            <img src="../assets/img/logo.jpg" alt="Logo">
+            <h1>BOOLFLIX</h1>
+        </div>
         <div>
-            <input type="text" placeholder="Cerca un film" v-model="searchText">
+            <input type="text" placeholder="Cerca un film o una serie TV" v-model="searchText">
             <button @click="$emit('searchClicked', searchText)" class="search-btn">Cerca</button>
         </div>
     </header>

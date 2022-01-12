@@ -8,7 +8,7 @@
             <h5>Titolo:</h5>
             <h4>{{filmInfo.title}}</h4>
         </div>
-        <div class="original-title">
+        <div v-if="filmInfo.original_title !== filmInfo.title" class="original-title">
             <h5>Titolo originale:</h5>
             <h4>{{filmInfo.original_title}}</h4>
         </div>

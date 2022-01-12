@@ -8,7 +8,7 @@
             <h5>Nome:</h5>
             <h4>{{seriesInfo.name}}</h4>
         </div>
-        <div class="original-title">
+        <div v-if="seriesInfo.original_name !== seriesInfo.name" class="original-title">
             <h5>Nome originale:</h5>
             <h4>{{seriesInfo.original_name}}</h4>
         </div>
