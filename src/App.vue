@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header @searchClicked="search" />
-    <Main :filmList="films"/>
+    <Main :filmList="films"  />
   </div>
 </template>
 
@@ -19,6 +19,7 @@ export default {
   data: function () {
     return {
       films: [],
+      series: [],
       apiKey: '24c04ef549dc063d6f67e72a4486f9a3',
       queryValue: "",
     };
@@ -39,8 +40,8 @@ export default {
       .then((response) => {
         this.films = response.data.results;
       });
-    }
-    
+    },
+   
   }
 };
 </script>

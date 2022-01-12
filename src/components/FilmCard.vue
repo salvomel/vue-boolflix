@@ -7,7 +7,12 @@
             <span class="original-title">Titolo originale: {{filmInfo.original_title}}</span>
         </div>
         <div>
-            <span class="language">Lingua: {{filmInfo.original_language}}</span>     
+            <span v-if="filmInfo.original_language === 'en'" class="language">Lingua: <img src="../assets/img/en.png" alt="en"></span>
+            <span v-else-if="filmInfo.original_language === 'it'" class="language">Lingua: <img src="../assets/img/it.png" alt="it"></span>
+            <span v-else-if="filmInfo.original_language === 'fr'" class="language">Lingua: <img src="../assets/img/fr.png" alt="fr"></span>
+            <span v-else-if="filmInfo.original_language === 'es'" class="language">Lingua: <img src="../assets/img/es.png" alt="es"></span>
+            <span v-else-if="filmInfo.original_language === 'de'" class="language">Lingua: <img src="../assets/img/de.png" alt="de"></span> 
+            <span v-else class="language">Lingua: {{filmInfo.original_language}}</span>    
         </div>
         <div>
             <span class="vote">Voto: {{filmInfo.vote_average}}</span>
@@ -30,6 +35,13 @@
     .single-card {
         color: $text-color;
         margin: 20px;
+        border: 1px solid white;
+        border-radius: 8px;
+        padding: 10px;
+
+        img {
+            max-height: 15px;
+        }
     }
     
 </style>

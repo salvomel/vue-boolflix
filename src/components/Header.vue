@@ -1,6 +1,6 @@
 <template>
     <header>
-        <img src="../assets/logo.jpg" alt="Logo">
+        <img src="../assets/img/logo.jpg" alt="Logo">
         <div>
             <input type="text" placeholder="Cerca un film" v-model="searchText">
             <button @click="$emit('searchClicked', searchText)" class="search-btn">Cerca</button>
@@ -27,7 +27,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 30px;
+    padding: 10px 60px;
     
    img {
        height: 50px;
@@ -38,6 +38,7 @@ header {
         border: none;
         border-radius: 8px;
         padding: 5px 15px;
+        margin-left: 8px;
     }
     
     input {
@@ -48,7 +49,6 @@ header {
         background-color: $primary-color;
         color: $text-color;
         cursor: pointer;
-        margin-left: 8px;
     }
 }
 </style>

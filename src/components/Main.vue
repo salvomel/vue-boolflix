@@ -26,7 +26,9 @@
     
     main {
         .container {
-            padding: 20px;
+            width: 80%;
+            margin: auto;
+            margin-top: 20px;
 
             .film-list {
                 display: flex;
