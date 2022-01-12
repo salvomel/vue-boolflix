@@ -30,18 +30,5 @@
 </script>
 
 <style scoped lang="scss">
-@import '../style/variables';
-
-    .single-card {
-        color: $text-color;
-        margin: 20px;
-        border: 1px solid white;
-        border-radius: 8px;
-        padding: 10px;
-
-        img {
-            max-height: 15px;
-        }
-    }
-    
+@import '../style/cards';
 </style>

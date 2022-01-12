@@ -1,0 +1,19 @@
+@import './variables';
+
+main {
+    .container {
+        width: 80%;
+        margin: auto;
+        margin-top: 20px;
+
+        .cards-list {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        h2 {
+            color: $text-color;
+            margin-top: 50px;
+        }
+    }
+}
