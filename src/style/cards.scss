@@ -6,10 +6,21 @@
     border: 1px solid white;
     border-radius: 8px;
     padding: 10px;
-    line-height: 30px;
+
+    div {
+        margin-bottom: 10px;
+    }
 
     .poster {
-        border-radius: 8px;
+        img {
+            border-radius: 8px;
+            min-width: 220px;
+        }
+
+        .no-img {
+            text-align: center;
+            margin: 150px 0;
+        }
     }
 
     .language {

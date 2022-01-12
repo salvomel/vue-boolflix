@@ -1,7 +1,8 @@
 <template>
     <div class="single-card">
         <div class="poster" >
-            <img :src="`https://image.tmdb.org/t/p/w185/${filmInfo.poster_path}`" :alt="filmInfo.title">
+            <img v-if="filmInfo.poster_path" :src="`https://image.tmdb.org/t/p/w185/${filmInfo.poster_path}`" :alt="filmInfo.title">
+            <div v-else class="no-img">POSTER NON DISPONIBILE</div>
         </div>
         <div class="title">
             <h5>Titolo:</h5>
@@ -21,7 +22,8 @@
         </div>
         <div class="vote">
             <h5>Voto:</h5>
-            <h4>{{filmInfo.vote_average}}</h4>
+            <span v-if="filmInfo.vote_average === 0">Votazione non disponibile</span>
+            <h4 v-else>{{filmInfo.vote_average}}</h4>
         </div>
     </div>
 </template>
@@ -32,6 +34,12 @@
         props: {
             filmInfo: Object,
         },
+        methods: {
+            // Funzione arrotondamento per eccesso
+            getVote(vote) {
+                return Math.ceil(vote / 2); 
+            }
+        }
     }
 </script>
 

@@ -1,7 +1,8 @@
 <template>
     <div class="single-card">
         <div class="poster" >
-            <img :src="`https://image.tmdb.org/t/p/w185/${seriesInfo.poster_path}`" :alt="seriesInfo.title">
+            <img v-if="seriesInfo.poster_path" :src="`https://image.tmdb.org/t/p/w185/${seriesInfo.poster_path}`" :alt="seriesInfo.title">
+            <div v-else class="no-img">POSTER NON DISPONIBILE</div>
         </div>
         <div class="title">
             <h5>Nome:</h5>
@@ -21,7 +22,8 @@
         </div>
         <div class="vote">
             <h5>Voto:</h5>
-            <h4>{{seriesInfo.vote_average}}</h4>
+            <span v-if="seriesInfo.vote_average === 0">Votazione non disponibile</span>
+            <h4 v-else>{{seriesInfo.vote_average}}</h4>
         </div>
     </div>
 </template>
