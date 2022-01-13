@@ -1,29 +1,44 @@
 <template>
     <div class="single-card">
-        <div class="poster" >
-            <img v-if="filmInfo.poster_path" :src="`https://image.tmdb.org/t/p/w185/${filmInfo.poster_path}`" :alt="filmInfo.title">
-            <div v-else class="no-img">POSTER NON DISPONIBILE</div>
+
+        <!-- Se poster non presente mostrare avviso e titolo film/serie-->
+        <div class="poster">
+            <img v-if="filmInfo.poster_path" :src="`https://image.tmdb.org/t/p/w342/${filmInfo.poster_path}`" :alt="filmInfo.title ? filmInfo.title : filmInfo.name">
+            <div v-else class="no-img">*Poster non disponibile*
+                <div>{{filmInfo.title ? filmInfo.title : filmInfo.name}}</div>
+            </div>
         </div>
-        <div class="title">
-            <h5>Titolo:</h5>
-            <h4>{{filmInfo.title}}</h4>
-        </div>
-        <div v-if="filmInfo.original_title !== filmInfo.title" class="original-title">
-            <h5>Titolo originale:</h5>
-            <h4>{{filmInfo.original_title}}</h4>
-        </div>
-        <div class="language">
-            <span v-if="filmInfo.original_language === 'en'">Lingua: <img src="../assets/img/en.png" alt="en"></span>
-            <span v-else-if="filmInfo.original_language === 'it'">Lingua: <img src="../assets/img/it.png" alt="it"></span>
-            <span v-else-if="filmInfo.original_language === 'fr'">Lingua: <img src="../assets/img/fr.png" alt="fr"></span>
-            <span v-else-if="filmInfo.original_language === 'es'">Lingua: <img src="../assets/img/es.png" alt="es"></span>
-            <span v-else-if="filmInfo.original_language === 'de'">Lingua: <img src="../assets/img/de.png" alt="de"></span> 
-            <span v-else>Lingua: {{filmInfo.original_language}}</span>    
-        </div>
-        <div class="vote">
-            <h5>Voto:</h5>
-            <span v-if="filmInfo.vote_average === 0">Votazione non disponibile</span>
-            <h4 v-else>{{filmInfo.vote_average}}</h4>
+
+        <div class="back-card">
+
+            <div class="title">
+                <h5>Titolo:</h5>
+                <h4>{{filmInfo.title ? filmInfo.title : filmInfo.name}}</h4>
+            </div>
+
+            <!-- Titolo originale da mostrare solo se diverso dal titolo -->
+            <div v-if="filmInfo.original_title !== filmInfo.title || filmInfo.original_name !== filmInfo.name" class="original-title">
+                <h5>Titolo originale:</h5>
+                <h4>{{filmInfo.original_title ? filmInfo.original_title : filmInfo.original_name}}</h4>
+            </div>
+
+            <div class="language">
+                Lingua:
+                <span v-if="flags.includes(filmInfo.original_language)">
+                    <img :src="require(`../assets/img/${filmInfo.original_language}.png`)" :alt="filmInfo.original_language">
+                </span>
+                <span v-else>{{filmInfo.original_language}}</span>    
+            </div>
+
+            <!-- Se voto non presente mostrare avviso -->
+            <div v-if="filmInfo.vote_average" class="vote">
+                <h5>Voto:</h5>
+                <span v-for="i in 5" :key="i">
+                    <i v-if="i <= getVote(filmInfo.vote_average)" class="fas fa-star"></i>
+                    <i v-else class="far fa-star"></i>
+                </span>
+            </div>
+            <span v-else>*Votazione non disponibile*</span>
         </div>
     </div>
 </template>
@@ -31,6 +46,11 @@
 <script>
     export default {
         name: 'FilmCard',
+        data: function() {
+            return {
+                flags: ['en', 'it', 'fr', 'es', 'de']
+            };
+        },
         props: {
             filmInfo: Object,
         },

@@ -7,7 +7,7 @@
             </div>
             <h2>TV SERIES</h2>
             <div class="cards-list">
-                <SeriesCard v-for="series in seriesList" :key="series.id" :seriesInfo="series" />
+                <FilmCard v-for="series in seriesList" :key="series.id" :filmInfo="series" />
             </div>
         </div>
     </main>
@@ -15,13 +15,11 @@
 
 <script>
     import FilmCard from './FilmCard.vue';
-    import SeriesCard from './SeriesCard.vue';
 
     export default {
         name: 'Main',
         components: {
             FilmCard,
-            SeriesCard
         },
         props: {
             filmList: Array,
