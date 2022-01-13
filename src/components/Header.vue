@@ -7,6 +7,7 @@
         <div>
             <input type="text" placeholder="Cerca un film o una serie TV" v-model="searchText">
             <button @click="$emit('searchClicked', searchText)" class="search-btn">Cerca</button>
+            <button @click="resetSearch()" class="search-btn">Reset</button>
         </div>
     </header>
 </template>
@@ -18,7 +19,13 @@ export default {
         return {
             searchText: "",
         }
-    }
+    },
+    methods: {
+        resetSearch: function() {
+            this.searchText = '';
+            this.$emit('searchClicked', this.searchText);
+        }
+    },
 }
 </script>
 

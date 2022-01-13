@@ -1,7 +1,7 @@
 <template>
     <div class="single-card">
 
-        <!-- Se poster non presente mostrare avviso e titolo film/serie-->
+        <!-- Se poster non presente mostra avviso e titolo film/serie-->
         <div class="poster">
             <img v-if="filmInfo.poster_path" :src="`https://image.tmdb.org/t/p/w342/${filmInfo.poster_path}`" :alt="filmInfo.title ? filmInfo.title : filmInfo.name">
             <div v-else class="no-img">*Poster non disponibile*
@@ -16,7 +16,7 @@
                 <h4>{{filmInfo.title ? filmInfo.title : filmInfo.name}}</h4>
             </div>
 
-            <!-- Titolo originale da mostrare solo se diverso dal titolo -->
+            <!-- Titolo/Nome originale da mostrare solo se diverso dal titolo/nome -->
             <div v-if="filmInfo.original_title !== filmInfo.title || filmInfo.original_name !== filmInfo.name" class="original-title">
                 <h5>Titolo originale:</h5>
                 <h4>{{filmInfo.original_title ? filmInfo.original_title : filmInfo.original_name}}</h4>
@@ -30,15 +30,22 @@
                 <span v-else>{{filmInfo.original_language}}</span>    
             </div>
 
-            <!-- Se voto non presente mostrare avviso -->
-            <div v-if="filmInfo.vote_average" class="vote">
-                <h5>Voto:</h5>
+            <!-- Se voto non presente mostra avviso -->
+            <h5 class="vote">Voto:</h5>
+            <div v-if="filmInfo.vote_average">
                 <span v-for="i in 5" :key="i">
                     <i v-if="i <= getVote(filmInfo.vote_average)" class="fas fa-star"></i>
                     <i v-else class="far fa-star"></i>
                 </span>
             </div>
-            <span v-else>*Votazione non disponibile*</span>
+            <span v-else class="no-vote">*Votazione non disponibile*</span>
+
+            <!-- Se descrizione non presente mostra avviso -->
+            <h5 class="overview">Descrizione:</h5>
+            <div>
+                <span v-if="filmInfo.overview">{{filmInfo.overview}}</span>
+                <span v-else>~Descrizione non disponibile~</span>
+            </div>
         </div>
     </div>
 </template>

@@ -3,32 +3,83 @@
 .single-card {
     color: $text-color;
     margin: 20px;
+    border-radius: 10px;
     border: 1px solid white;
-    border-radius: 8px;
-    padding: 10px;
     width: 342px;
     flex-shrink: 0;
+    position: relative;
+    cursor: pointer;
 
-    div {
-        margin-bottom: 10px;
+    &:hover {
+        overflow-y: auto;
+    }
+
+    &:hover .poster{
+        opacity: 0;
+        transition: 0.5s opacity;
+    }
+
+    &:hover .back-card{
+        opacity: 1;
+        transition: 0.5s opacity;
     }
 
     .poster {
-
+        
         img {
-            border-radius: 8px;
-            // min-width: 200px;
+            border-radius: 10px;
         }
 
         .no-img {
             text-align: center;
             margin: 150px 0;
+            font-size: 18px;
+            background-color: $secondary-color;
+            padding: 15px;
+            
+
+            div {
+                margin-top: 20px;
+                font-size: 22px;
+                font-weight: bold;
+            }
         }
     }
 
-    .language {
-        img {
-            height: 15px;
+    .back-card {
+        position: absolute;
+        opacity: 0;
+        z-index: 1;
+        top: 0;
+        padding: 30px 15px; 
+
+        .title {
+            h4 {
+                font-size: 18px;
+            }
+        }
+
+        .original-title {
+            margin-top: 10px;
+        }
+
+        .language {
+            margin: 10px 0;
+            font-size: 15px;
+            font-weight: bold;
+
+            img {
+                height: 15px;
+            }
+        }
+
+        .no-vote{
+           font-size: 15px;
+        }
+
+        .overview {
+            font-size: 15px;
+            margin-top: 10px;
         }
     }
 }
