@@ -34,7 +34,7 @@
             <h5 class="vote">Voto:</h5>
             <div v-if="filmInfo.vote_average">
                 <span v-for="i in 5" :key="i">
-                    <i v-if="i <= getVote(filmInfo.vote_average)" class="fas fa-star"></i>
+                    <i v-if="i <= getVote(filmInfo.vote_average)" class="fas fa-star stars"></i>
                     <i v-else class="far fa-star"></i>
                 </span>
             </div>
